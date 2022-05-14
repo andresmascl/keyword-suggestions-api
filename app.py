@@ -1,3 +1,4 @@
+from this import s
 from flask import Flask, request
 from string import printable
 from difflib import SequenceMatcher
@@ -16,7 +17,7 @@ def printbl(text):
 
 @app.route('/')
 def home():
-    return 'hello world'
+    return 'Version 1.0.0. \nPublication date:14-05-2022'
 
 @app.route('/suggest', methods=['GET', 'POST'])
 def Suggest():
@@ -29,10 +30,11 @@ def Suggest():
         keywords_array = req_body['keywords']
 
         # 1st: divide the file into insights
-        split_interviews = re.split('/[/]{30,}/', interview)
+        RegEx=r">{2}.+?<{2}"
+        split_interview = re.findall(RegEx, interview, flags=re.DOTALL)
         insights = {}
-        for i in range(0, len(split_interviews)):
-            insights[i] = {"insight": split_interviews[i]}
+        for i in range(0, len(split_interview)):
+            insights[i] = {"insight": split_interview[i]}
 
         # 2nd: search for presence of keywords
         for insight in insights:
