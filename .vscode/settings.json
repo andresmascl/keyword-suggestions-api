@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/1e66e58b-a2ce-4168-b9ad-4f6a07f3de38/resourceGroups/ResourceGroup1/providers/Microsoft.Web/sites/insight-tagging",
+    "appService.deploySubpath": "."
+}
