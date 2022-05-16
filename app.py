@@ -17,7 +17,7 @@ def printbl(text):
 
 @app.route('/')
 def home():
-    return 'Version 1.0.0. \nPublication date:14-05-2022'
+    return r'Version 1.0.0. \nPublication date:14-05-2022'
 
 @app.route('/suggest', methods=['GET', 'POST'])
 def Suggest():
@@ -28,13 +28,15 @@ def Suggest():
         req_body = request.get_json()
         interview = req_body['interview']
         keywords_array = req_body['keywords']
+        insigts_start_delimiter = req_body['insights_start_delimiter']
+        insights_end_delimiter = req_body['insights_end_delimiter']
 
         # 1st: divide the file into insights
-        RegEx=r">{2}.+?<{2}"
+        RegEx = insigts_start_delimiter + r".+?" + insights_end_delimiter
         split_interview = re.findall(RegEx, interview, flags=re.DOTALL)
         insights = {}
         for i in range(0, len(split_interview)):
-            insights[i] = {"insight": split_interview[i]}
+            insights[i] = {"insight": split_interview[i][2:-2]}
 
         # 2nd: search for presence of keywords
         for insight in insights:

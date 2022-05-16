@@ -16,7 +16,9 @@ query = {
         the learning algorithm to generalize from the training data to unseen situations in a 
         'reasonable' way (see inductive bias).<<
     """,
-    "keywords": [{"reasonable":"paralapapiricoipi"}, {"paralapapiricoipi": "unseen"}]
+    "keywords": [{"reasonable":"paralapapiricoipi"}, {"paralapapiricoipi": "unseen"}],
+    "insights_start_delimiter":">>",
+    "insights_end_delimiter":"<<"
     }
 
 data = json.dumps(query, ensure_ascii=False).encode("utf8")
