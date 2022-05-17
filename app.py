@@ -17,7 +17,7 @@ def printbl(text):
 
 @app.route('/')
 def home():
-    return r'Version 1.1.0. \nPublication date:16-05-2022'
+    return r'Version 0.3.0. \nPublication date:16-05-2022'
 
 @app.route('/suggest', methods=['GET', 'POST'])
 def Suggest():
